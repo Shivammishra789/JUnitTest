@@ -21,10 +21,22 @@ public class UserValidator {
 			return pattern.matcher(lastName).matches();	
 		}
 		
+		//method for validation of user emailId using regex
+		public boolean validateEmailId(String emailId) { 
+			regex = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:([0-9-]{1}|[a-zA-Z]{3,5})\\.)+[a-zA-Z]{2,3}";
+			pattern = Pattern.compile(regex);
+			return pattern.matcher(emailId).matches();
+		}
+			
+		
 		//method for validation of user password using regex
 		public boolean validatePassword(String password) {
 			regex = "^(?=.*[0-9])(?=[^@#$%^&+=]*[@#$%^&+=][^@#$%^&+=]*$)(?=.*[a-z])(?=.*[A-Z]).{8,}$";
 			pattern = Pattern.compile(regex);
 			return pattern.matcher(password).matches();	
-		}		
+		}
+		
+		
+		
+		
 }

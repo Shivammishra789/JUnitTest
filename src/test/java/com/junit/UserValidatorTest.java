@@ -32,6 +32,19 @@ public class UserValidatorTest {
 	}
 	
 	@Test 
+	public void givenEmailId_WhenProper_ShouldReturn_True() {
+		boolean result = validator.validateEmailId("Shivam.mishra@gmail.com");
+		Assert.assertTrue(result);
+	}
+	
+	@Test 
+	public void givenEmailId_WhenNotProper_ShouldReturn_False() {
+		boolean result = validator.validateEmailId("abc@.com.my");
+		Assert.assertFalse(result);
+	}
+	
+	
+	@Test 
 	public void givenPassword_WhenProper_ShouldReturn_True() {
 		boolean result = validator.validatePassword("Shivdg123&");
 		Assert.assertTrue(result);
