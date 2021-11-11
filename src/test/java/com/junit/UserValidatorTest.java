@@ -18,4 +18,18 @@ public class UserValidatorTest {
 		boolean result = validator.validateFirstName("sh");
 		Assert.assertFalse(result);
 	}
+	
+	@Test 
+	public void givenLastName_WhenProper_ShouldReturn_True() {
+		UserValidator validator = new UserValidator();
+		boolean result = validator.validateFirstName("Mishra");
+		Assert.assertTrue(result);
+	}
+	
+	@Test 
+	public void givenLastName_WhenNotProper_ShouldReturn_False() {
+		UserValidator validator = new UserValidator();
+		boolean result = validator.validateFirstName("mis");
+		Assert.assertFalse(result);
+	}
 }
