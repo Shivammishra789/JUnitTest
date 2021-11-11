@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class UserValidatorTest {
-	
+
 	UserValidator validator = new UserValidator();
 
 	@Test 
@@ -12,44 +12,55 @@ public class UserValidatorTest {
 		boolean result = validator.validateFirstName("Shivam");
 		Assert.assertTrue(result);
 	}
-	
+
 	@Test 
 	public void givenFirstName_WhenNotProper_ShouldReturn_False() {
 		boolean result = validator.validateFirstName("sh");
 		Assert.assertFalse(result);
 	}
-	
+
 	@Test 
 	public void givenLastName_WhenProper_ShouldReturn_True() {
-		boolean result = validator.validateFirstName("Mishra");
+		boolean result = validator.validateLastName("Mishra");
 		Assert.assertTrue(result);
 	}
-	
+
 	@Test 
 	public void givenLastName_WhenNotProper_ShouldReturn_False() {
-		boolean result = validator.validateFirstName("mis");
+		boolean result = validator.validateLastName("mis");
 		Assert.assertFalse(result);
 	}
-	
+
 	@Test 
 	public void givenEmailId_WhenProper_ShouldReturn_True() {
 		boolean result = validator.validateEmailId("Shivam.mishra@gmail.com");
 		Assert.assertTrue(result);
 	}
-	
+
 	@Test 
 	public void givenEmailId_WhenNotProper_ShouldReturn_False() {
 		boolean result = validator.validateEmailId("abc@.com.my");
 		Assert.assertFalse(result);
 	}
-	
-	
+
+	@Test 
+	public void givenPhoneNo_WhenProper_ShouldReturn_True() {
+		boolean result = validator.validatePhoneNo("91 7894561230");
+		Assert.assertTrue(result);
+	}
+
+	@Test 
+	public void givenPhoneNo_WhenNotProper_ShouldReturn_False() {
+		boolean result = validator.validatePhoneNo("8794512879");
+		Assert.assertFalse(result);
+	}
+
 	@Test 
 	public void givenPassword_WhenProper_ShouldReturn_True() {
 		boolean result = validator.validatePassword("Shivdg123&");
 		Assert.assertTrue(result);
 	}
-	
+
 	@Test 
 	public void givenPassword_WhenNotProper_ShouldReturn_False() {
 		boolean result = validator.validatePassword("shiv$123");
