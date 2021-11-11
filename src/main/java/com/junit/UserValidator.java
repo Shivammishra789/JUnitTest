@@ -4,8 +4,8 @@ import java.util.regex.Pattern;
 
 public class UserValidator {
 
-	static String regex;
-	static Pattern pattern;
+	String regex;
+	Pattern pattern;
 
 	//method for validation of user first name using regex
 	public boolean validateFirstName(String firstName) {
@@ -20,4 +20,11 @@ public class UserValidator {
 			pattern = Pattern.compile(regex);
 			return pattern.matcher(lastName).matches();	
 		}
+		
+		//method for validation of user password using regex
+		public boolean validatePassword(String password) {
+			regex = "^(?=.*[0-9])(?=[^@#$%^&+=]*[@#$%^&+=][^@#$%^&+=]*$)(?=.*[a-z])(?=.*[A-Z]).{8,}$";
+			pattern = Pattern.compile(regex);
+			return pattern.matcher(password).matches();	
+		}		
 }
