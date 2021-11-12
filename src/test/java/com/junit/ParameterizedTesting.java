@@ -47,12 +47,17 @@ public class ParameterizedTesting {
 	}
 
 
-	// Validate Emails using regex Return true if the string value passes else return false
+	// Validate Emails with custom exception
 
 	@Test
 	public void givenEmailId_ShouldReturnTrueOrFalse() {
 		UserValidator validator = new UserValidator();
-		boolean result = validator.validateEmailId(this.email);
-		Assert.assertEquals(expectedResult, result);
+		try {
+			validator.validateEmailId(this.email);
+		} catch (UserRegistrationException e) {
+			// TODO Auto-generated catch block
+			Assert.assertEquals(UserRegistrationException.ExceptionType.INVALID_EMAIL_ID, e.type);
+		}
+		
 	}
 }
